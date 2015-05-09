@@ -1,0 +1,57 @@
+
+<% events = @event_list %>
+<% current_record = 0 %>
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Tune-A-GoGo - Event Listings</title>
+ 
+  <meta name="author" content="Laury Woollery">
+
+  <style type="text/css">
+  	h1{text-align: center;}
+  	.container{
+  		width:600px;
+  		margin:auto;
+  	}
+  	.records{
+  		margin-top:40px;
+  		padding-top:35px;
+  		border-top:solid 3px #042029;
+  	}
+  	.artist-name{
+  		text-transform: capitalize;
+  	}
+  </style>
+
+
+
+</head>
+
+<body>
+<div class="container">
+<h1>Concerts Listings in your area</h1>
+
+
+ <% events.each do |events| %>
+ 	<% artist_name =  (events['artists'][0]['name']).downcase %>
+ 
+
+ 	<div class="records">
+		<h2 class="artist-name"><%= artist_name %></h2>
+		<p><a href="/artists?name=<%= artist_name.downcase %>">Artist Details</a> <br /></p>
+		<h3>At <%= events['venue']['name'] %></h3>
+		<p>Area: <%= events['venue']['city'] %></p>
+
+	</div>	
+
+
+
+		<% current_record = current_record + 1 %>
+	<% end %>
+
+</div>
+</body>

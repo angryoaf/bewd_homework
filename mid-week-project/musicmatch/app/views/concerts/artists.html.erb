@@ -1,0 +1,42 @@
+<% artist_name = @artist_details['name']%> 
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Tune-A-GoGo - Artists</title>
+ 
+  <meta name="author" content="Laury Woollery">
+
+
+
+</head>
+
+<body>
+
+
+<h1>
+	<a style="text-decoration:none;" href="<%= @artist_details['external_urls']['spotify']%>" target="_spotify"><%= artist_name %>&nbsp; <span style="font-size:9px; font-style:italic;">listen in Spotify</span></a>
+</h1>
+
+<p>
+	<img src="<%= @artist_details['images'][1]['url'] %>" />
+</p>
+
+
+<h2 style="margin-top:40px; padding-top:35px; border-top:solid 3px #042029;">
+	Albums
+</h2>
+	
+	<% @artist_albums.each do |albums| %>
+		<div>
+			
+				<h3><a href="<%= albums['external_urls']['spotify']%>" target="_spotify"><%= albums['name'] %></a></h3>
+				<p><a href="<%= albums['external_urls']['spotify']%>" target="_spotify"><img style="width:150px; height:150px" src="<%= albums['images'][1]['url']%>"></a></p>
+
+		</div>
+	<% end %>
+
+	</body>
