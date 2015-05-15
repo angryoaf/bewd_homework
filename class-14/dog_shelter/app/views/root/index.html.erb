@@ -1,0 +1,41 @@
+<style>
+	ul.dog_listing li{
+		display:inline-block;
+		list-style: none;
+	}
+	ul.dog_listing li:after{
+		content: ' | '
+	}
+	ul.dog_listing li:first-child:after, ul.dog_listing li:last-child:after{
+		content: ''
+	}
+	ul.dog_listing li img{
+		width: 75px;
+	}
+	.name{
+		font-weight:bold !important;
+	}
+</style>
+
+<h1>Humane Society</h1>
+<h2>Dog Adoptions</h2>
+
+<% @pups.each do |p| %>
+	<ul class="dog_listing">
+		<li>
+			<a href="/dogs/<%= p.id%>"><img src="<%= p.photo_url %>"/> </a> 
+		</li>
+		<li class="name">
+			<%= p.name %> 
+		</li>
+		<li class="h_id">
+			ID: <%= p.h_id %>
+		</li>
+		<li>
+			<a href="/dogs/<%= p.id%>">details</a>
+		</li>
+
+	</ul>
+<% end %>
+
+<p><a href="/dogs/add_new">Add New Listing</a></p>

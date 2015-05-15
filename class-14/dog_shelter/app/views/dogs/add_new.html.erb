@@ -1,0 +1,15 @@
+<h1>Add New Listing</h1>
+
+<%= form_for @add_pup do |f1| %>
+
+
+
+Name: <%= f1.text_field :name %> <br />
+ID#: <%= f1.text_field :h_id %><br />
+Age: <%= f1.text_field :age %><br />
+Photo URL: <%= f1.text_field :photo_url %><br />
+Description: <%= f1.text_area :description %><br />
+
+<%= f1.submit "Submit" %><br />
+
+<% end %>
